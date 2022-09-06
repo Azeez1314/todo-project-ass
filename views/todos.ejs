@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+
+<body>
+    <div class="nav-bar bg-black py-3">
+        <div class="d-flex justify-content-between">
+            <span class="navbar-brand text-white fs-3 mx-3">Todos</span>
+            <a href="/logout" class="btn btn-danger mx-3">Logout</a>
+        </div>  
+    </div>
+    <div class="container py-3">
+        <ul>
+            <% todos.forEach( el => { %>
+                    <li class='todoItem mb-2' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        
+                        <span class='del btn btn-outline-danger btn-sm ms-3'> Delete </span>
+                        
+                        <span><%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></span>
+        
+                    </li>
+            <% }) %>    
+            </ul>
+        
+            <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        
+            <form action="/todos/createTodo" method='POST'>
+                <div class="form-group row">
+                    <label for="todoItem" class="form-label">Todo</label>
+                    <input type="text" placeholder="Enter Todo Item" name='todoItem' id="todoItem" class="form-control col ms-3 me-3">
+                    <input type="submit" class="btn btn-primary col-4">
+                </div>
+            </form>
+    </div>
+
+
+    <%- include('partials/footer.ejs') %>

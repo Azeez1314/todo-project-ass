@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');
+
+html, body {
+    background: rgb(240, 211, 174);
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+      font-family: 'Heebo', sans-serif
+  }
+
+h1{
+    color: red;
+}
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.not{
+    text-decoration: underline;
+}
